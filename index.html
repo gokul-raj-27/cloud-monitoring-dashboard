@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cloud Monitoring Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="brand">
+            <div class="brand-icon">☁️</div>
+
+            <div>
+                <h2>CloudMonitor</h2>
+                <span>AWS Infrastructure Dashboard</span>
+            </div>
+        </div>
+
+        <div class="header-right">
+
+            <div class="connection">
+                <span class="online-dot"></span>
+                All Systems Operational
+            </div>
+
+            <div class="user">
+                GR
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Dashboard Heading -->
+        <section class="dashboard-heading">
+
+            <div>
+                <p class="label">CLOUD MONITORING</p>
+
+                <h1>Infrastructure Overview</h1>
+
+                <p class="subtitle">
+                    Monitor system performance, resources and network activity.
+                </p>
+            </div>
+
+            <div class="refresh-area">
+
+                <span id="lastUpdated">
+                    Last updated: Just now
+                </span>
+
+                <button id="refreshBtn">
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Metric Cards -->
+        <section class="metrics">
+
+            <!-- CPU -->
+            <div class="metric-card">
+
+                <div class="metric-top">
+
+                    <div>
+                        <p>CPU UTILIZATION</p>
+                        <h2 id="cpuValue">42%</h2>
+                    </div>
+
+                    <div class="metric-icon">
+                        ⚙️
+                    </div>
+
+                </div>
+
+                <div class="progress">
+                    <div
+                        class="progress-bar cpu"
+                        id="cpuBar">
+                    </div>
+                </div>
+
+                <span class="metric-status">
+                    Normal
+                </span>
+
+            </div>
+
+
+            <!-- Memory -->
+            <div class="metric-card">
+
+                <div class="metric-top">
+
+                    <div>
+                        <p>MEMORY USAGE</p>
+                        <h2 id="memoryValue">61%</h2>
+                    </div>
+
+                    <div class="metric-icon">
+                        🧠
+                    </div>
+
+                </div>
+
+                <div class="progress">
+                    <div
+                        class="progress-bar memory"
+                        id="memoryBar">
+                    </div>
+                </div>
+
+                <span class="metric-status">
+                    Normal
+                </span>
+
+            </div>
+
+
+            <!-- Network -->
+            <div class="metric-card">
+
+                <div class="metric-top">
+
+                    <div>
+                        <p>NETWORK TRAFFIC</p>
+                        <h2 id="networkValue">2.4 GB</h2>
+                    </div>
+
+                    <div class="metric-icon">
+                        🌐
+                    </div>
+
+                </div>
+
+                <div class="metric-info">
+                    +12.5% from previous hour
+                </div>
+
+                <span class="metric-status">
+                    Stable
+                </span>
+
+            </div>
+
+
+            <!-- Requests -->
+            <div class="metric-card">
+
+                <div class="metric-top">
+
+                    <div>
+                        <p>REQUESTS</p>
+                        <h2 id="requestValue">18.7K</h2>
+                    </div>
+
+                    <div class="metric-icon">
+                        📊
+                    </div>
+
+                </div>
+
+                <div class="metric-info">
+                    Requests processed today
+                </div>
+
+                <span class="metric-status">
+                    Healthy
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Charts -->
+        <section class="charts-grid">
+
+            <!-- CPU Chart -->
+            <div class="chart-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <p class="small-label">
+                            PERFORMANCE
+                        </p>
+
+                        <h2>CPU Utilization</h2>
+                    </div>
+
+                    <span class="chart-value">
+                        42%
+                    </span>
+
+                </div>
+
+                <div class="chart">
+
+                    <div class="chart-lines">
+                        <span>100%</span>
+                        <span>75%</span>
+                        <span>50%</span>
+                        <span>25%</span>
+                        <span>0%</span>
+                    </div>
+
+                    <svg
+                        viewBox="0 0 600 220"
+                        preserveAspectRatio="none">
+
+                        <polyline
+                            id="cpuLine"
+                            points="
+                            0,160
+                            60,140
+                            120,150
+                            180,100
+                            240,125
+                            300,90
+                            360,110
+                            420,80
+                            480,100
+                            540,75
+                            600,90
+                            "
+                        />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+            <!-- Network Chart -->
+            <div class="chart-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <p class="small-label">
+                            NETWORK
+                        </p>
+
+                        <h2>Network Traffic</h2>
+                    </div>
+
+                    <span class="chart-value">
+                        2.4 GB
+                    </span>
+
+                </div>
+
+                <div class="chart">
+
+                    <div class="chart-lines">
+                        <span>5 GB</span>
+                        <span>4 GB</span>
+                        <span>3 GB</span>
+                        <span>2 GB</span>
+                        <span>0</span>
+                    </div>
+
+                    <svg
+                        viewBox="0 0 600 220"
+                        preserveAspectRatio="none">
+
+                        <polyline
+                            id="networkLine"
+                            points="
+                            0,170
+                            60,155
+                            120,160
+                            180,130
+                            240,145
+                            300,115
+                            360,120
+                            420,100
+                            480,110
+                            540,85
+                            600,95
+                            "
+                        />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Bottom Grid -->
+        <section class="bottom-grid">
+
+
+            <!-- Instances -->
+            <div class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <p class="small-label">
+                            COMPUTE
+                        </p>
+
+                        <h2>EC2 Instances</h2>
+                    </div>
+
+                    <span class="instance-count">
+                        3 Running
+                    </span>
+
+                </div>
+
+
+                <div class="instance-list">
+
+                    <div class="instance">
+
+                        <div class="instance-icon">
+                            🖥️
+                        </div>
+
+                        <div class="instance-info">
+                            <h3>production-server</h3>
+                            <p>i-0a12bc34de56f7890</p>
+                        </div>
+
+                        <span class="running">
+                            ● Running
+                        </span>
+
+                    </div>
+
+
+                    <div class="instance">
+
+                        <div class="instance-icon">
+                            🖥️
+                        </div>
+
+                        <div class="instance-info">
+                            <h3>api-server</h3>
+                            <p>i-0123ab45cd67ef890</p>
+                        </div>
+
+                        <span class="running">
+                            ● Running
+                        </span>
+
+                    </div>
+
+
+                    <div class="instance">
+
+                        <div class="instance-icon">
+                            🖥️
+                        </div>
+
+                        <div class="instance-info">
+                            <h3>database-server</h3>
+                            <p>i-0987zy65xw43vu210</p>
+                        </div>
+
+                        <span class="running">
+                            ● Running
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Alerts -->
+            <div class="panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <p class="small-label">
+                            MONITORING
+                        </p>
+
+                        <h2>Recent Alerts</h2>
+                    </div>
+
+                    <span class="alert-count">
+                        2 Alerts
+                    </span>
+
+                </div>
+
+
+                <div class="alert-list">
+
+                    <div class="alert warning">
+
+                        <div class="alert-icon">
+                            ⚠️
+                        </div>
+
+                        <div>
+                            <h3>High CPU Usage</h3>
+                            <p>
+                                api-server exceeded 70% CPU
+                            </p>
+                            <span>
+                                8 minutes ago
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="alert info">
+
+                        <div class="alert-icon">
+                            ℹ️
+                        </div>
+
+                        <div>
+                            <h3>Deployment Completed</h3>
+                            <p>
+                                Production deployment successful
+                            </p>
+                            <span>
+                                24 minutes ago
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- System Health -->
+        <section class="health-card">
+
+            <div>
+
+                <p class="small-label">
+                    SYSTEM HEALTH
+                </p>
+
+                <h2>All systems are operating normally</h2>
+
+                <p>
+                    Monitoring services are running without critical issues.
+                </p>
+
+            </div>
+
+            <div class="health-score">
+
+                <div class="score-circle">
+                    <span id="healthScore">
+                        98%
+                    </span>
+                </div>
+
+                <span>Health Score</span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            Cloud Monitoring Dashboard | Project 4 of 4
+        </p>
+
+        <p>
+            AWS CloudWatch Inspired Monitoring Interface
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
